@@ -104,6 +104,6 @@ BeautifyAds is not affiliated with, endorsed by, or sponsored by Google LLC. "Go
 
 ## About
 
-Built and maintained by [Ilya at PotokLab](https://potoklab.com). PotokLab is a paid-acquisition consultancy based in Stockholm.
+Built and maintained by [Ilya at PotokLab](https://potoklab.com). PotokLab is a paid-acquisition digital agency based in Sweden.
 
 Website: [potoklab.com/beautifyads-extension](https://potoklab.com/beautifyads-extension/)
