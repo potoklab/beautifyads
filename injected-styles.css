@@ -1,0 +1,398 @@
+/* ====================================
+   BeautifyAds v1.0.6 — Injected Page Styles
+   New: Merged "Hide Insights" master toggle covers multiple insight blocks.
+   ==================================== */
+
+/* ====================================
+   UI BLOCKS
+   ==================================== */
+
+/* ---- 1. RECOMMENDATIONS (header-card on Campaigns chart row) ---- */
+html[data-ba-active="1"][data-ba-hide-recommendations="1"] header-card {
+  display: none !important;
+}
+
+/* Force chart full width when recommendations hidden */
+html[data-ba-active="1"][data-ba-hide-recommendations="1"] .table-header-container deferred-chart-container-view.chart,
+html[data-ba-active="1"][data-ba-hide-recommendations="1"] .table-header-container deferred-chart-container-view {
+  width: 100% !important;
+}
+
+/* ---- 2. INSIGHTS (master toggle — covers multiple blocks) ---- */
+
+/* 2a. Search terms insights onboarding card */
+html[data-ba-active="1"][data-ba-hide-insights="1"] search-terms-insights-educational-callout,
+html[data-ba-active="1"][data-ba-hide-insights="1"] search-terms-onboarding-card,
+html[data-ba-active="1"][data-ba-hide-insights="1"] [data-component-name*="search-terms-onboarding"],
+html[data-ba-active="1"][data-ba-hide-insights="1"] [data-component-name*="search-terms-insights-promo"] {
+  display: none !important;
+}
+
+/* 2b. AI suggestions dialog (.ai-dialog-portal) */
+html[data-ba-active="1"][data-ba-hide-insights="1"] ai-dialog-portal-host,
+html[data-ba-active="1"][data-ba-hide-insights="1"] ai-dialog-portal,
+html[data-ba-active="1"][data-ba-hide-insights="1"] .ai-dialog-portal,
+html[data-ba-active="1"][data-ba-hide-insights="1"] .ai-dialog-container,
+html[data-ba-active="1"][data-ba-hide-insights="1"] [id*="adsGuideAiDialogPortal"] {
+  display: none !important;
+}
+
+/* 2c. pMax Assets theme card (e.g. "Get your assets ready for Father's Day") */
+html[data-ba-active="1"][data-ba-hide-insights="1"] theme-card,
+html[data-ba-active="1"][data-ba-hide-insights="1"] theme-card[data-test-id="theme-card-in-table"] {
+  display: none !important;
+}
+
+/* 2d. pMax Asset details wide recommendation card */
+html[data-ba-active="1"][data-ba-hide-insights="1"] wide-recommendation-card-chart-topper,
+html[data-ba-active="1"][data-ba-hide-insights="1"] wide-recommendation-card,
+html[data-ba-active="1"][data-ba-hide-insights="1"] [class*="wide-recommendation-card"] {
+  display: none !important;
+}
+
+/* ---- 3. AI MAX SECTION (.search-max in Campaign settings) ---- */
+html[data-ba-active="1"][data-ba-hide-ai-max-section="1"] .search-max {
+  display: none !important;
+}
+
+/* ====================================
+   LEFT MENU ITEMS — Surgical by real IDs
+   ==================================== */
+
+/* Brand report */
+html[data-ba-active="1"][data-ba-hide-menu-brand-report="1"] sidebar-panel[id$=".brandReport"],
+html[data-ba-active="1"][data-ba-hide-menu-brand-report="1"] sidebar-panel[id*=".brandReport"],
+html[data-ba-active="1"][data-ba-hide-menu-brand-report="1"] sidebar-panel:has(a[title="Brand report"]) {
+  display: none !important;
+}
+
+/* Shops */
+html[data-ba-active="1"][data-ba-hide-menu-shops="1"] sidebar-panel[id$=".stores"],
+html[data-ba-active="1"][data-ba-hide-menu-shops="1"] sidebar-panel:has(a[title="Shops"]) {
+  display: none !important;
+}
+
+/* Campaign groups */
+html[data-ba-active="1"][data-ba-hide-menu-campaign-groups="1"] sidebar-panel[id$=".campaignGroups"],
+html[data-ba-active="1"][data-ba-hide-menu-campaign-groups="1"] sidebar-panel:has(a[title="Campaign groups"]) {
+  display: none !important;
+}
+
+/* Performance planner */
+html[data-ba-active="1"][data-ba-hide-menu-performance-planner="1"] sidebar-panel[id$=".performancePlanner"],
+html[data-ba-active="1"][data-ba-hide-menu-performance-planner="1"] sidebar-panel:has(a[title="Performance planner"]) {
+  display: none !important;
+}
+
+/* Reach Planner — actual ID is navigation.tools.planning.mediaPlanner.home, title is "Reach Planner" (capital P) */
+html[data-ba-active="1"][data-ba-hide-menu-reach-planner="1"] sidebar-panel[id$=".mediaPlanner.home"],
+html[data-ba-active="1"][data-ba-hide-menu-reach-planner="1"] sidebar-panel[id$=".reachPlanner"],
+html[data-ba-active="1"][data-ba-hide-menu-reach-planner="1"] sidebar-panel:has(a[title="Reach Planner"]),
+html[data-ba-active="1"][data-ba-hide-menu-reach-planner="1"] sidebar-panel:has(a[title="Reach planner"]) {
+  display: none !important;
+}
+
+/* App advertising hub */
+html[data-ba-active="1"][data-ba-hide-menu-app-advertising-hub="1"] sidebar-panel[id$=".appAdvertisingHub"],
+html[data-ba-active="1"][data-ba-hide-menu-app-advertising-hub="1"] sidebar-panel:has(a[title="App advertising hub"]) {
+  display: none !important;
+}
+
+/* YouTube creator partnerships */
+html[data-ba-active="1"][data-ba-hide-menu-youtube-creator-partnerships="1"] sidebar-panel[id$=".youtubeCreatorPartnerships"],
+html[data-ba-active="1"][data-ba-hide-menu-youtube-creator-partnerships="1"] sidebar-panel:has(a[title="YouTube creator partnerships"]),
+html[data-ba-active="1"][data-ba-hide-menu-youtube-creator-partnerships="1"] sidebar-panel:has(a[title="Youtube creator partnerships"]) {
+  display: none !important;
+}
+
+/* Content suitability */
+html[data-ba-active="1"][data-ba-hide-menu-content-suitability="1"] sidebar-panel[id$=".contentSuitability"],
+html[data-ba-active="1"][data-ba-hide-menu-content-suitability="1"] sidebar-panel:has(a[title="Content suitability"]) {
+  display: none !important;
+}
+
+/* Policy manager */
+html[data-ba-active="1"][data-ba-hide-menu-policy-manager="1"] sidebar-panel[id$=".policyManager"],
+html[data-ba-active="1"][data-ba-hide-menu-policy-manager="1"] sidebar-panel:has(a[title="Policy manager"]) {
+  display: none !important;
+}
+
+/* Ad preview and diagnosis */
+html[data-ba-active="1"][data-ba-hide-menu-ad-preview-diagnosis="1"] sidebar-panel[id$=".adPreviewAndDiagnosis"],
+html[data-ba-active="1"][data-ba-hide-menu-ad-preview-diagnosis="1"] sidebar-panel[id$=".adPreview"],
+html[data-ba-active="1"][data-ba-hide-menu-ad-preview-diagnosis="1"] sidebar-panel:has(a[title="Ad preview and diagnosis"]),
+html[data-ba-active="1"][data-ba-hide-menu-ad-preview-diagnosis="1"] sidebar-panel:has(a[title="Ad preview"]) {
+  display: none !important;
+}
+
+/* Troubleshooting section auto-hide
+   When BOTH Policy manager AND Ad preview are hidden, the parent Troubleshooting
+   header has no visible children — hide it too. */
+html[data-ba-active="1"][data-ba-hide-menu-policy-manager="1"][data-ba-hide-menu-ad-preview-diagnosis="1"]
+  sidebar-panel[id$=".troubleshooting"] {
+  display: none !important;
+}
+
+/* ====================================
+   MENU REORGANIZATION ONBOARDING ANIMATION
+   ==================================== */
+
+/* v1.1.1 — Hide original sidebar-panels that have been cloned into Campaigns */
+html[data-ba-active="1"] sidebar-panel[data-beautifyads-hide-original="1"] {
+  display: none !important;
+}
+
+#beautifyads-menu-overlay {
+  position: absolute;
+  z-index: 9997;
+  pointer-events: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#beautifyads-menu-overlay.beautifyads-overlay-visible {
+  opacity: 1;
+}
+
+/* Drawing border effect using SVG-style stroke animation via CSS */
+#beautifyads-menu-overlay.beautifyads-overlay-drawing {
+  border-color: #C10C0C;
+  box-shadow: 0 0 0 0 rgba(193, 12, 12, 0.4);
+  animation: beautifyads-border-draw 700ms ease-out forwards;
+}
+
+#beautifyads-menu-overlay.beautifyads-overlay-pulse {
+  border-color: #C10C0C;
+  animation: beautifyads-border-pulse 500ms ease-out forwards;
+}
+
+@keyframes beautifyads-border-draw {
+  0% {
+    border-color: transparent;
+    box-shadow: 0 0 0 0 rgba(193, 12, 12, 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    border-color: #C10C0C;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  }
+  75% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    border-color: #C10C0C;
+    box-shadow: 0 0 18px 2px rgba(193, 12, 12, 0.5);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes beautifyads-border-pulse {
+  0% {
+    box-shadow: 0 0 18px 2px rgba(193, 12, 12, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 28px 6px rgba(193, 12, 12, 0.75);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(193, 12, 12, 0);
+    border-color: transparent;
+  }
+}
+
+/* Label that slides in during reorganization */
+#beautifyads-menu-label {
+  position: absolute;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(193, 12, 12, 0.4);
+  white-space: nowrap;
+}
+
+#beautifyads-menu-label.beautifyads-label-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#beautifyads-menu-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C10C0C;
+  animation: beautifyads-label-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes beautifyads-label-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ====================================
+   STATUS BADGE
+   ==================================== */
+#beautifyads-status-badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px 7px 12px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 0 0 8px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+  letter-spacing: 0.01em;
+}
+
+#beautifyads-status-badge:hover {
+  background: #292929;
+}
+
+.beautifyads-badge-mark {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C10C0C;
+  flex-shrink: 0;
+}
+
+.beautifyads-badge-text {
+  line-height: 1;
+}
+
+/* ====================================
+   QUICK NOTIFICATIONS
+   ==================================== */
+
+.beautifyads-notification {
+  position: fixed;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border: 1px solid #C10C0C;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: beautifyads-notif-in 0.25s ease-out;
+  pointer-events: none;
+  max-width: 360px;
+  text-align: center;
+}
+
+.beautifyads-notification-out {
+  animation: beautifyads-notif-out 0.3s ease-in forwards;
+}
+
+@keyframes beautifyads-notif-in {
+  from { opacity: 0; transform: translate(-50%, -8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes beautifyads-notif-out {
+  to { opacity: 0; transform: translate(-50%, -8px); }
+}
+
+/* =========================================================
+   FLYOUT MENU REORGANIZATION
+   The flyout (nav.material-sidebar.flyout) is a second menu
+   instance Angular shows on hover over the left icon rail.
+   We scope all rules to nav.flyout so they never bleed into
+   the main left menu.
+
+   Section order mirrors the main menu (flex column + order).
+   Item hiding piggybacks on the same data-ba-hide-menu-*
+   attributes already set on <html> — selectors below are
+   scoped to nav.flyout so they apply independently.
+
+   Physical reordering of moved items (Keywords, Search terms,
+   Assets, Videos → Campaigns) is done by reorganizeFlyout()
+   in JS each time the flyout appears.
+   ========================================================= */
+
+/* Make the flyout sidebar-section a flex column so order works */
+html[data-ba-active="1"] nav.material-sidebar.flyout .sidebar-section {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Make the Campaigns content-container a flex column so we can order its children */
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1 {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Section order — matches main menu order numbers exactly */
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.overview                { order: 10; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.recommendations         { order: 20; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns               { order: 30; }
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1:has(> sidebar-panel[id^="navigation.campaigns.campaigns."]) { order: 31; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.insightsAndReports      { order: 40; }
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1:has(> sidebar-panel[id^="navigation.campaigns.insightsAndReports."]) { order: 41; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.assets                  { order: 50; }
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1:has(> sidebar-panel[id^="navigation.campaigns.assets."]) { order: 51; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.audiences               { order: 60; }
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1:has(> sidebar-panel[id^="navigation.campaigns.audiences."]) { order: 61; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.changeHistory           { order: 70; }
+html[data-ba-active="1"] nav.material-sidebar.flyout .content-container.content-indent-level-1:has(> sidebar-panel[id^="navigation.campaigns.changeHistory."]) { order: 71; }
+
+/* Native Campaigns children order — CSS handles reordering of native items
+   so we never need to physically move them (avoids breaking Angular event delegation) */
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns\.campaigns  { order: 10; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns\.adGroups   { order: 20; }
+html[data-ba-active="1"] nav.material-sidebar.flyout [data-ba-flyout-clone="navigation.campaigns.audiences.searchKeywords"]                { order: 30; }
+html[data-ba-active="1"] nav.material-sidebar.flyout [data-ba-flyout-clone="navigation.campaigns.insightsAndReports.searchTerms.keywords"] { order: 40; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns\.ads         { order: 50; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns\.assetGroups { order: 60; }
+html[data-ba-active="1"] nav.material-sidebar.flyout [data-ba-flyout-clone="navigation.campaigns.assets.assets"]  { order: 70; }
+html[data-ba-active="1"] nav.material-sidebar.flyout [data-ba-flyout-clone="navigation.campaigns.assets.videos"]  { order: 80; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.campaigns\.experiments  { order: 90; }
+
+/* Hide the Assets parent header when its children have been moved out (JS sets this attr) */
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel[data-ba-flyout-assets-empty] {
+  display: none !important;
+}
+
+/* Permanently hide moved items in their ORIGINAL flyout locations.
+   When Angular expands Audiences or Insights in the flyout, it renders
+   Keywords/Search terms there — these CSS rules hide them instantly
+   without any JS intervention needed. */
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.audiences\.searchKeywords:not([data-ba-flyout-clone]) { display: none !important; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.insightsAndReports\.searchTerms\.keywords:not([data-ba-flyout-clone]) { display: none !important; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.assets\.assets:not([data-ba-flyout-clone]) { display: none !important; }
+html[data-ba-active="1"] nav.material-sidebar.flyout sidebar-panel#navigation\.campaigns\.assets\.videos:not([data-ba-flyout-clone]) { display: none !important; }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BeautifyAds</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="icons/icon-48.png" alt="" width="28" height="28" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">BeautifyAds</div>
+          <a class="brand-byline" id="brand-byline-link" href="https://potoklab.com" target="_blank" rel="noopener">by PotokLab</a>
+        </div>
+      </div>
+      <div class="header-controls">
+        <label class="active-pill" title="Pause changes for this session">
+          <span class="active-pill-label">Active</span>
+          <span class="active-pill-switch">
+            <input type="checkbox" id="active-toggle-input">
+            <span class="active-pill-slider"></span>
+          </span>
+        </label>
+        <label class="badge-mini-toggle">
+          <input type="checkbox" id="badge-checkbox">
+          <span>Show badge</span>
+        </label>
+      </div>
+    </header>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner" id="promo-banner">
+      <div class="promo-text">
+        <div class="promo-title" id="promo-title">Struggling with ad performance?</div>
+      </div>
+      <a class="promo-cta" id="promo-cta" href="#" target="_blank" rel="noopener">
+        <span id="promo-cta-text">Free audit</span> <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- TABS -->
+    <nav class="tabs">
+      <button class="tab tab-active" data-tab="cleanup">Interface</button>
+      <button class="tab" data-tab="menu">Left menu</button>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <!-- TAB: INTERFACE -->
+      <section class="panel panel-active" data-panel="cleanup">
+        <div class="panel-intro">
+          Clean up your Google Ads interface. Hide recommendations, clean menu, G then L – Search terms hotkey.
+        </div>
+
+        <!-- Reorganize master toggle (in Interface tab now) -->
+        <div class="toggle-list">
+          <label class="toggle-row">
+            <div class="toggle-info">
+              <div class="toggle-label">Reorganize left menu</div>
+              <div class="toggle-meta">Straightforward menu structure made for humans</div>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="reorganize-toggle">
+              <span class="switch-slider"></span>
+            </div>
+          </label>
+        </div>
+
+        <div class="reorg-spacer"></div>
+
+        <div class="toggle-list" id="ui-blocks-list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- TAB: LEFT MENU -->
+      <section class="panel" data-panel="menu">
+        <div class="panel-intro">
+          Re-enable menu items hidden by default. They appear in their original Google Ads location.
+        </div>
+        <div class="toggle-list" id="menu-items-list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <a class="footer-link" id="feature-request-link" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Request a feature
+      </a>
+      <div class="footer-version">v1.0.0</div>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

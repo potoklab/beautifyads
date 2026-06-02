@@ -1,0 +1,17 @@
+# Changelog
+
+All notable changes to BeautifyAds are documented here.
+
+## [1.0.0] – 2026-06-02
+
+Initial public release.
+
+### Features
+- Reorganized left menu – Keywords, Search terms, Assets, and Videos grouped under Campaigns
+- Reorganized flyout menu (hover-over icon-rail menu) with matching structure
+- Toggle individual menu items on/off from the extension popup
+- Hide AI Max promo block in search campaign settings
+- Hide Recommendations notifications and Insights blocks
+- `G` then `L` hotkey to jump to Search terms
+- One-click Active toggle to instantly see the original Google Ads layout
+- Status badge on Google Ads pages

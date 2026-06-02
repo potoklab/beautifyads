@@ -1,0 +1,537 @@
+/* ====================================
+   BeautifyAds Control Panel v1.0.3
+   ==================================== */
+
+:root {
+  --bg-darkest: #1a1a1a;
+  --bg-dark: #292929;
+  --bg-elevated: #303030;
+  --red-main: #C10C0C;
+  --red-hover: #990b0b;
+  --grey: #898989;
+  --grey-light: #d6d6d6;
+  --white: #ffffff;
+
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-title: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 380px;
+  background: var(--bg-darkest);
+  color: var(--grey-light);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  max-height: 600px;
+}
+
+/* ====================================
+   HEADER
+   ==================================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--bg-elevated);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.brand-mark img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.brand-byline {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--grey);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.brand-byline:hover {
+  color: var(--red-main);
+}
+
+/* ====================================
+   HEADER CONTROLS — Active pill + Show badge mini toggle
+   ==================================== */
+
+.header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Active pill toggle — visible label + switch */
+.active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px 4px 12px;
+  background: var(--bg-dark);
+  border: 1px solid var(--bg-elevated);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.active-pill:hover {
+  background: var(--bg-elevated);
+  border-color: var(--grey);
+}
+
+.active-pill-label {
+  line-height: 1;
+}
+
+.active-pill-switch {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 14px;
+}
+
+.active-pill-switch input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.active-pill-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #404040;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.active-pill-slider::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.active-pill-switch input:checked + .active-pill-slider {
+  background: var(--red-main);
+}
+
+.active-pill-switch input:checked + .active-pill-slider::after {
+  transform: translateX(12px);
+}
+
+/* Dim the pill label when inactive */
+body.ba-inactive .active-pill {
+  background: rgba(137, 137, 137, 0.1);
+  border-color: rgba(137, 137, 137, 0.25);
+  color: var(--grey);
+}
+
+/* Show badge mini toggle */
+.badge-mini-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--grey-light);
+  letter-spacing: 0.02em;
+  user-select: none;
+  padding: 2px 4px;
+  transition: opacity 0.2s ease;
+}
+
+.badge-mini-toggle input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  accent-color: var(--red-main);
+  cursor: pointer;
+}
+
+.badge-mini-toggle:hover {
+  color: var(--white);
+}
+
+/* When master Active is OFF, dim things below the header.
+   Banner stays fully clickable so users can always reach the CTA. */
+body.ba-inactive .tabs,
+body.ba-inactive #ui-blocks-list,
+body.ba-inactive #menu-items-list,
+body.ba-inactive .badge-mini-toggle {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+body.ba-inactive .promo-banner {
+  /* Slight visual cue but no pointer-events block */
+  opacity: 0.92;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ====================================
+   PROMO BANNER (FULL WIDTH)
+   ==================================== */
+
+.promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 18px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-elevated) 100%);
+  border: 1px solid var(--bg-elevated);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--red-main);
+}
+
+.promo-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.promo-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.promo-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: var(--red-main);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.promo-cta:hover {
+  background: var(--red-hover);
+}
+
+.promo-cta .arrow {
+  transition: transform 0.15s ease;
+}
+
+.promo-cta:hover .arrow {
+  transform: translateX(2px);
+}
+
+/* ====================================
+   TABS
+   ==================================== */
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--bg-elevated);
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 4px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--grey);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-bottom: -1px;
+  text-align: center;
+}
+
+.tab:hover {
+  color: var(--grey-light);
+}
+
+.tab-active {
+  color: var(--white);
+  border-bottom-color: var(--red-main);
+}
+
+/* ====================================
+   CONTENT
+   ==================================== */
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-elevated) transparent;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 3px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--grey);
+}
+
+.panel {
+  display: none;
+}
+
+.panel-active {
+  display: block;
+}
+
+.panel-intro {
+  font-size: 12px;
+  color: var(--grey);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* ====================================
+   TOGGLE ROWS
+   ==================================== */
+
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reorg-spacer {
+  height: 14px;
+  border-bottom: 1px solid var(--bg-elevated);
+  margin-bottom: 14px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--bg-dark);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggle-row:hover {
+  background: var(--bg-elevated);
+  border-color: var(--bg-elevated);
+}
+
+.toggle-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.toggle-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.toggle-meta {
+  font-size: 10px;
+  color: var(--grey);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+/* Toggle switch */
+.toggle-switch {
+  flex-shrink: 0;
+  position: relative;
+  width: 32px;
+  height: 18px;
+}
+
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.switch-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #404040;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.switch-slider::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.toggle-switch input:checked + .switch-slider {
+  background: var(--red-main);
+}
+
+.toggle-switch input:checked + .switch-slider::after {
+  transform: translateX(14px);
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-top: 1px solid var(--bg-elevated);
+  background: var(--bg-darkest);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--grey-light);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--red-main);
+}
+
+.footer-link svg {
+  flex-shrink: 0;
+}
+
+.footer-version {
+  font-size: 10px;
+  color: var(--grey);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
