@@ -2,7 +2,7 @@
 
 A Chrome extension that cleans up the Google Ads interface. Built by a PPC manager for PPC managers.
 
-![BeautifyAds in action][https://potoklab.com/wp-content/uploads/2026/06/beautifyads-hero.webp]
+![BeautifyAds in action](https://potoklab.com/wp-content/uploads/2026/06/beautifyads-hero.webp)
 
 ## What it does
 
